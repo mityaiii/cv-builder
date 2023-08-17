@@ -1,0 +1,1 @@
+export { bgColors } from './colors'
