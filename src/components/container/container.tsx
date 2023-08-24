@@ -1,5 +1,5 @@
 import React from 'react';
-import { IContainerType, containerTypeMap } from './types.Container';
+import { IContainerType, containerTypeMap } from './types.container';
 
 const Container: React.FC<IContainerType> = ({ type, className='', children }) => {
   return(

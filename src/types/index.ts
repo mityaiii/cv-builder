@@ -1,1 +1,1 @@
-export type { ChildrenType } from './commonTypes'
+export type { ChildrenType } from './common.types'

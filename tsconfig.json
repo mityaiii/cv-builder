@@ -30,7 +30,8 @@
       "@/constants/*": ["constants/index"],
       "@/hooks/*": ["hooks/index"],
       "@/store/*": ["store/index"],
-      "@/assets/*": ["assets/index"]
+      "@/assets/*": ["assets/index"],
+      "@/business-logic/*": ["business-logic/index"],
     }
   },
   "include": ["src"],

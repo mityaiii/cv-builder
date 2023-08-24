@@ -5,8 +5,8 @@ const InputRange: React.FC<any> = ({ value, promise, ...rest }: { value: any, pr
     <input
     className="block w-full mb-3"
     type="range"
-    {...rest}
     value={value}
+    {...rest}
     onChange={ (e) => promise(e) }
   />
   )

@@ -9,7 +9,7 @@ import { store } from "@/store/index";
 function CvBuilderPage() {
   return (
     <Provider store={store}>
-      <Container type="fluid">
+      <Container className="flex-grow" type="fluid">
           <Drawer 
             element={<CvDevTools/>} 
           />

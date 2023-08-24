@@ -1,24 +1,16 @@
 import { useAppSelector } from "@/hooks/index"
-
-const Avatar = () => {
-  const { imgSrc } = useAppSelector(state => state.cvReducer)
-  return (
-    imgSrc 
-    ?
-    <div className="mx-auto items-center justify-center flex rounded-full h-52 w-52 border-white border-[3px]">
-      <img className="h-[95%] w-[95%] rounded-full" src={imgSrc} />
-    </div>
-    : 
-    <></>
-  )
-}
+import Avatar from "./avatar"
+import Skills from "./skills"
+import PhoneNumberDisplay from "./phone-number-display"
 
 function ShortInformation() {
   const { bgColor } = useAppSelector(state => state.cvReducer)
 
   return (
-    <div className="pt-8 h-full w-1/3" style={{ backgroundColor: bgColor }}>
-      <Avatar />
+    <div className="pt-9 h-full w-5/12" style={{ backgroundColor: bgColor }}>
+      <Avatar/>
+      <PhoneNumberDisplay/>
+      <Skills/>
     </div>
   )
 }
