@@ -3,7 +3,7 @@ import { TextInputWithIcon } from ".";
 import { useActions } from "@/hooks/useActions";
 import getValidPhoneNumber from "@/business-logic/index";
 
-const TextInputPhone = ({ value }: { value: string }) => {
+const TextInputPhone: React.FC<any> = ({ value, ...rest }: { value: string }) => {
   const { setPhoneNumber } = useActions()
 
   return (
@@ -14,6 +14,7 @@ const TextInputPhone = ({ value }: { value: string }) => {
       getValidPhoneNumber(e, setPhoneNumber)
     } }
     maxLength={16}
+    { ...rest }
     />
   )
 }

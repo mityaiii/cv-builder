@@ -1,8 +1,7 @@
 import defaultImage from '@/assets/default-avatar.jpg' 
-import { ActionCreatorWithPayload } from '@reduxjs/toolkit/dist/createAction'
 import { useRef } from 'react'
 
-const UploadImage = ({ imgSrc, setImageSrc }: { imgSrc: string, setImageSrc: ActionCreatorWithPayload<any, "cvData/setImageSrc"> }) => {
+const UploadImage = ({ imgSrc, setImageSrc, className }: { imgSrc: string | React.ReactElement, setImageSrc: Function, className?: string }) => {
   const imgRef = useRef<HTMLInputElement | null>(null)
   
   const handleImgClick = () => {
@@ -25,7 +24,10 @@ const UploadImage = ({ imgSrc, setImageSrc }: { imgSrc: string, setImageSrc: Act
 
   return (
     <div>
-      <img className='mx-auto cursor-pointer w-40 h-40 rounded-full' src={ imgSrc || defaultImage } onClick={ () => { handleImgClick() } } />
+      { typeof imgSrc === 'string' ? 
+        <img className={ className ? className : 'mx-auto cursor-pointer w-40 h-40 rounded-full' } src={ imgSrc || defaultImage } onClick={ () => { handleImgClick() } } />
+        : <div onClick={ () => { handleImgClick() } }>{ imgSrc }</div>
+      }
       <input 
       type='file' 
       className='hidden'

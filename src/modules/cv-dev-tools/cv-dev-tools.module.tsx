@@ -1,19 +1,20 @@
 import UploadImage from "components/UI/upload-image";
 import DownloadPdf from './download-pdf' 
-import { Button, Container, InputRange, PhoneInput, TextInput } from "components/index";
+import { Button, Container, InputRange, TextInput } from "components/index";
 import { useActions, useAppSelector } from "@/hooks/index";
 import { InputColor } from "components/index";
 import SkillsInput from "./components/skills-input";
 import { TextArea } from "components/index";
 import ContactsWithIcon from "./components/contacts-with-icon";
+import LinksInput from "./components/links-input";
 
 
 function CvDevToolsModule() {
   const { setInitials, setScale, setImageSrc, setJobTitle, setColor, setAboutMe } = useActions()
-  const { scale, imgSrc, bgColor, initials, jobTitle, aboutMe, phoneNumber } = useAppSelector(state => state.cvReducer) 
+  const { scale, imgSrc, bgColor, initials, jobTitle, aboutMe } = useAppSelector(state => state.cvReducer) 
 
   return (
-    <div className="w-80 lg:w-96 bg-sky-800">
+    <div className="pt-5 w-80 lg:w-96 bg-sky-800">
       <Container type="normal">
         <div className="flex items-center justify-between">
           <UploadImage imgSrc={ imgSrc } setImageSrc={ setImageSrc }/>
@@ -45,18 +46,15 @@ function CvDevToolsModule() {
         placeholder='job title'
         />
 
-        <PhoneInput
-        value={ phoneNumber }
-        />
-
         <TextArea
         value={ aboutMe }
         onChange={(val: string) => setAboutMe(val)}
+        placeholder='About me'
         />
-
-        <SkillsInput/>
-
+        
         <ContactsWithIcon/>
+        <LinksInput/>
+        <SkillsInput/>
 
         <Button promise={() => { DownloadPdf() }}> Download </Button>
       </Container>
