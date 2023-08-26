@@ -1,11 +1,28 @@
-import React from 'react'
+import InputField from '../input-field'
+import { useActions, useAppSelector } from '@/hooks/index'
+import ExtendedTextInput from './extended-text';
 
-function ExtendedTextField() {
+function ExtendedTextFieldInput() {
+  const { addExtendedText } = useActions()
+
+  const { extendedTexts } = useAppSelector(state => state.extendedTextReducer);
+
   return (
-    <div>
-      
-    </div>
+    <InputField addValue={ addExtendedText }>
+      <ul>
+        { extendedTexts.map((el, idx) =>
+          <ExtendedTextInput
+            key={ el.id }
+            idx={ idx }
+            title={ el.title }
+            content={ el.content }
+            iconSrc={ el.iconSrc }
+          />
+        ) }
+
+      </ul>
+    </InputField>
   )
 }
 
-export default ExtendedTextField
+export default ExtendedTextFieldInput

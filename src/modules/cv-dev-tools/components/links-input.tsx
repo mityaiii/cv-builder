@@ -1,27 +1,20 @@
 import { useActions, useAppSelector } from '@/hooks/index'
-import { AddButton, TextInputWithIcon } from 'components/UI'
+import ShortInformationInputField from './short-information-input-field'
 
 const LinksInput = () => {
   const { links } = useAppSelector(state => state.linksReducer)
-  const { addLink, updateIconLinkSrc, updateLink } = useActions()
+  const { addLink, updateIconLinkSrc, updateLink, removeLink } = useActions()
 
   return (
-    <div className='rounded-lg bg-sky-950 bg-opacity-50 px-2 mb-1 pb-[2px]'>
+    <ShortInformationInputField
+      array={ links }
+      addValue={ addLink }
+      updateIconSrc={ updateIconLinkSrc }
+      updateValue={ updateLink }
+      removeValue={ removeLink }
+    >
       <h2 className='pt-3 text-sm text-white text-center uppercase'> Hrefs to messengers </h2>
-      <ul>
-      { links.map((el, idx)  => 
-        <li key={el.id}>
-          <TextInputWithIcon 
-          value={el.link} 
-          onChange={ (e: React.ChangeEvent<HTMLInputElement>) => updateLink(e.target.value) } 
-          updateIconSrc={ updateIconLinkSrc }
-          idx={idx}
-          iconSrc={el.iconSrc}/>
-        </li>
-      ) }
-      </ul>
-      <AddButton addValue={ addLink } className='block mx-auto'></AddButton>
-    </div>
+    </ShortInformationInputField>
   )
 }
 

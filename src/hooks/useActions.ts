@@ -3,6 +3,7 @@ import { useMemo } from "react"
 import { actions, evaluatedPointsActions } from "@/store/index"
 import { contactsActions } from "@/store/index"
 import { linksActions } from "@/store/index"
+import { extendedTextActions } from "@/store/index"
 import { useDispatch } from "react-redux"
 
 const rootActions = {
@@ -10,6 +11,7 @@ const rootActions = {
   ...evaluatedPointsActions,
   ...contactsActions,
   ...linksActions,
+  ...extendedTextActions,
 }
 
 export const useActions = () => {

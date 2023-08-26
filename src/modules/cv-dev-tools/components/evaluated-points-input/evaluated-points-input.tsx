@@ -15,13 +15,13 @@ function EvaluatedPointsInput({ idx, title, handleTitle }: { idx: number, title:
         { evaluatedPoints.map((el) => 
         
         <InputRating 
-        key={el.id}
-        id={el.id}
-        title={el.title}
-        rating={el.rating}
-        idx={ idx }
-        handleRating={ updateRating }
-        handleTextValue={ updateTitle }
+          key={el.id}
+          id={el.id}
+          title={el.title}
+          rating={el.rating}
+          idx={ idx }
+          handleRating={ updateRating }
+          handleTextValue={ updateTitle }
         />
         ) }
 

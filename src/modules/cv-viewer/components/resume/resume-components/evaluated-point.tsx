@@ -1,7 +1,7 @@
 const EvaluatedPoint = ({ title, rating }: { title: string, rating: number}) => {
   return (
     <div className='mt-1'>
-        <h6 className='ml-5 mb-2 text-white text-[1.8rem]'> { title } </h6>
+        <h6 className='ml-5 mb-2 text-white text-[1.3rem]'> { title } </h6>
         <div className='ml-5 mb-5 gap-x-[0.4rem] flex'>
           { [1, 2, 3, 4, 5].map((value) => (
             <div 

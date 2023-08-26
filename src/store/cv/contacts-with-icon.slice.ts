@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export type ContactWithIcon = {
   id: number;
-  contact: string;
+  title: string;
   iconSrc: string | null;
 }
 
@@ -11,7 +11,7 @@ interface IContactsWithIcon {
 }
 
 const initialState: IContactsWithIcon = {
-  contacts: [{ id: 0, contact: '', iconSrc: null }]
+  contacts: [{ id: 0, title: '', iconSrc: null }]
 }
 
 export const contactsWithIconSlice = createSlice({
@@ -20,12 +20,12 @@ export const contactsWithIconSlice = createSlice({
   reducers: {
     addContact: (state, action) => {
       const id = state.contacts.length === 0 ? 0 : state.contacts[state.contacts.length - 1].id + 1;
-      const newValue: ContactWithIcon = { id: id, contact: '', iconSrc: null }
+      const newValue: ContactWithIcon = { id: id, title: '', iconSrc: null }
       state.contacts = [...state.contacts, newValue];
     },
     updateContact: (state, action) => {
-      const { idx, contact } = action.payload
-      state.contacts[idx].contact = contact
+      const { idx, newTitle } = action.payload
+      state.contacts[idx].title = newTitle
     },
     updateIconSrc: (state, action) => {
       const { idx, iconSrc } = action.payload

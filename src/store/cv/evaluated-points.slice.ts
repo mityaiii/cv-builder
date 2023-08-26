@@ -51,6 +51,7 @@ export const evaluatedPointsSlice = createSlice({
       }
     },
     updateTitle: (state, action) => {
+      console.log(action.payload)
       const { id, idx, title } = action.payload
       for (let i = 0; i < state.skills[idx].evaluatedPoints.length; ++i) {
         if (state.skills[idx].evaluatedPoints[i].id == id)  {

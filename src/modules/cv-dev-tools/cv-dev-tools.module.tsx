@@ -5,8 +5,9 @@ import { useActions, useAppSelector } from "@/hooks/index";
 import { InputColor } from "components/index";
 import SkillsInput from "./components/skills-input";
 import { TextArea } from "components/index";
-import ContactsWithIcon from "./components/contacts-with-icon";
+import ContactsWithIcon from "./components/index";
 import LinksInput from "./components/links-input";
+import { ExtendedTextFieldInput } from "./components/index";
 
 
 function CvDevToolsModule() {
@@ -48,13 +49,15 @@ function CvDevToolsModule() {
 
         <TextArea
         value={ aboutMe }
-        onChange={(val: string) => setAboutMe(val)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setAboutMe(e.target.value)}
         placeholder='About me'
         />
         
         <ContactsWithIcon/>
         <LinksInput/>
         <SkillsInput/>
+
+        <ExtendedTextFieldInput/>
 
         <Button promise={() => { DownloadPdf() }}> Download </Button>
       </Container>

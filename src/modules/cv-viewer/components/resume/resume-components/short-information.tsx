@@ -11,8 +11,8 @@ function ShortInformation() {
     <div className="pt-9 h-full w-5/12" style={{ backgroundColor: bgColor }}>
       <Avatar/>
       <Contacts/>
-      <Skills/>
       <LinksWithIcon/>
+      <Skills/>
     </div>
   )
 }

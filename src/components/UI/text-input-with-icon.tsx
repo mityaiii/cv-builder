@@ -7,7 +7,7 @@ const IconSrcHoc = ({ updateIconSrc, iconSrc, idx }: { updateIconSrc: Function, 
     return <UploadImage
     setImageSrc={ (iconSrc: string) => updateIconSrc({ idx, iconSrc }) }
     imgSrc={ iconSrc }
-    className='w-[24px] h-[24px] hover:cursor-pointer'
+    className='w-[24px] h-[24px] hover:cursor-pointer hover:scale-110 hover:duration-200'
     />
   } 
   else if (iconSrc === undefined || iconSrc === null) {
