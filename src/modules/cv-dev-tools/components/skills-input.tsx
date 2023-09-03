@@ -1,4 +1,3 @@
-import { AddButton } from "components/UI"
 import { useAppSelector } from "@/hooks/store.hooks"
 import { useActions } from "@/hooks/useActions"
 import EvaluatedPointsInput from "./evaluated-points-input/evaluated-points-input"
@@ -17,7 +16,7 @@ function SkillsInput() {
         idx={ idx } 
         title={ el.title } 
         handleTitle={ updateSkillTitle }
-      /> 
+      />
       ) }
     </InputField>
   )

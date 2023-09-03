@@ -37,9 +37,9 @@ export const evaluatedPointsSlice = createSlice({
       const newValue: EvaluatedPoint = { id: id, title: '', rating: 1 }
       state.skills[idx].evaluatedPoints = [...state.skills[idx].evaluatedPoints, newValue]
     },
-    delEvaluatedPoint: (state, action) => {
-      const { idx, title } = action.payload;
-      state.skills[idx].evaluatedPoints = state.skills[idx].evaluatedPoints.filter((el) => title !== el.title)
+    removeEvaluatedPoint: (state, action) => {
+      const { idx, id } = action.payload;
+      state.skills[idx].evaluatedPoints = state.skills[idx].evaluatedPoints.filter((el) => id !== el.id)
     },
     updateRating: (state, action: PayloadAction<IUpdatedRatingPayload>) => {
       const { id, idx, newRating } = action.payload;
@@ -51,7 +51,6 @@ export const evaluatedPointsSlice = createSlice({
       }
     },
     updateTitle: (state, action) => {
-      console.log(action.payload)
       const { id, idx, title } = action.payload
       for (let i = 0; i < state.skills[idx].evaluatedPoints.length; ++i) {
         if (state.skills[idx].evaluatedPoints[i].id == id)  {
@@ -60,13 +59,14 @@ export const evaluatedPointsSlice = createSlice({
         } 
       }
     },
-    addSkill: (state, action) => {
+    addSkill: (state) => {
       const id = state.skills.length === 0 ? 0 : state.skills[state.skills.length - 1].id + 1;
       const newValue: Skill = { id: id, title: '', evaluatedPoints: [] }
       state.skills = [...state.skills, newValue]
     },
-    delSkill: (state, action) => {
-      state.skills = state.skills.filter((el) => action.payload !== el.title)
+    removeSkill: (state, action) => {
+      const { idx } = action.payload;
+      state.skills = state.skills.filter((_, i) => i !== idx)
     },
     updateSkillTitle: (state, action) => {
       const { idx, newTitle } = action.payload;

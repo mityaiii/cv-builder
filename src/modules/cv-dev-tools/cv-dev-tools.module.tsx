@@ -24,7 +24,8 @@ function CvDevToolsModule() {
 
         <TextInput 
         value={ initials }
-        textType='uppercase'
+        textType='normal'
+        className='w-full'
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           setInitials(e.target.value)
         }} 
@@ -40,11 +41,12 @@ function CvDevToolsModule() {
 
         <TextInput
         value={ jobTitle }
-        textType='uppercase'
+        textType='normal'
+        className='w-full'
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           setJobTitle(e.target.value)
         }} 
-        placeholder='job title'
+        placeholder='Job title'
         />
 
         <TextArea

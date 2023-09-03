@@ -5,7 +5,13 @@ function DownloadPdf() {
   const opt = {
     filename:     'myfile.pdf',
     image:        { type: 'jpeg', quality: 1 },
-    jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+    html2canvas: {
+      dpi: 192,
+      scale: 4,
+      letterRendering: true,
+      useCORS: true
+    },
+    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
   }
   html2pdf().set(opt).from(element).save();
 }

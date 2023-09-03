@@ -11,8 +11,8 @@ function getValidPhoneNumber(e: React.ChangeEvent<HTMLInputElement>, setPhoneNum
   if (!inputNumbersValue)
     formattedInputValue = '';
   
-  if (input.value.length !== selectionStart) {
-    if ('0' <= e.nativeEvent.data && e.nativeEvent.data <= '9')
+  if (input.value.length !== selectionStart && input.value.length !== 0) {
+    if ('0' <= input.value[input.value.length - 1] && input.value[input.value.length - 1] <= '9')
       formattedInputValue = input.value
     else
       formattedInputValue = input.value.substring(0, inputNumbersValue.length - 1);

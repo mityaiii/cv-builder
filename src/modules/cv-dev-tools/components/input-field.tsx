@@ -5,7 +5,9 @@ function InputField({ children, addValue }: { children: ChildrenType, addValue: 
   return (
     <div className='rounded-lg bg-sky-950 bg-opacity-50 px-2 mb-1 pb-[2px]'>
       { children }
-      <AddButton addValue={ addValue } className='block mx-auto'></AddButton>
+      <div className='flex'>
+        <AddButton addValue={ addValue } className='block mx-auto'/>
+      </div>
     </div>
   )
 }

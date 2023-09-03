@@ -19,10 +19,11 @@ export const ExtendedTextSlice = createSlice({
   name: 'extendedText',
   initialState,
   reducers: {
-    addExtendedText: (state, action) => {
+    addExtendedText: (state) => {
       const id = state.extendedTexts.length === 0 ? 0 : state.extendedTexts[state.extendedTexts.length - 1].id + 1;
       const newValue: ExtendedText = { id: id, title: '', content: '', iconSrc: null }
       state.extendedTexts = [...state.extendedTexts, newValue]
+      console.log(state.extendedTexts)
     },
     updateExtendedTextTitle: (state, action) => {
       const { idx, newTitle } = action.payload
@@ -37,7 +38,9 @@ export const ExtendedTextSlice = createSlice({
       state.extendedTexts[idx].iconSrc = iconSrc
     },
     removeExtendedText: (state, action) => {
-
+      const { idx } = action.payload;
+      console.log(idx)
+      state.extendedTexts = state.extendedTexts.filter((_, i) => i !== idx)
     }
   }
 })

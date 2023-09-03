@@ -15,7 +15,7 @@ const initialState: ICvDataState = {
   jobTitle: "",
   imgSrc: "",
   bgColor: "#b23838",
-  scale: 0.7,
+  scale: window.innerWidth / 1000 * 0.7,
   aboutMe: "",
   phoneNumber: "",
 };

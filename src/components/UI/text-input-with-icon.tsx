@@ -21,9 +21,9 @@ const IconSrcHoc = ({ updateIconSrc, iconSrc, idx }: { updateIconSrc: Function, 
   }
 }
 
-const TextInputWithIcon: React.FC<any> = ({ updateIconSrc, value, iconSrc, idx, ...rest }: { updateIconSrc: Function, value: string, iconSrc?: string | React.ReactElement, idx?: number }) => {
+const TextInputWithIcon: React.FC<any> = ({ isDeletable, updateIconSrc, value, iconSrc, idx, ...rest }: { isDeletable?: boolean, updateIconSrc: Function, value: string, iconSrc?: string | React.ReactElement, idx?: number }) => {
   return (
-    <div className="flex items-center gap-x-2">
+    <div className={`flex items-center gap-x-2 ${isDeletable ? "w-[88%]" : ""}`}>
       <IconSrcHoc updateIconSrc={updateIconSrc} iconSrc={ iconSrc } idx={idx}/>
       <TextInput 
       value={ value }

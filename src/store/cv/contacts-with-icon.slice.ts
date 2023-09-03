@@ -18,7 +18,7 @@ export const contactsWithIconSlice = createSlice({
   name: 'contactWithIcon',
   initialState,
   reducers: {
-    addContact: (state, action) => {
+    addContact: (state) => {
       const id = state.contacts.length === 0 ? 0 : state.contacts[state.contacts.length - 1].id + 1;
       const newValue: ContactWithIcon = { id: id, title: '', iconSrc: null }
       state.contacts = [...state.contacts, newValue];
@@ -32,7 +32,8 @@ export const contactsWithIconSlice = createSlice({
       state.contacts[idx].iconSrc = iconSrc
     },
     removeContact: (state, action) => {
-
+      const { idx } = action.payload;
+      state.contacts = state.contacts.filter((_, i) => i !== idx)
     }
   }
 })

@@ -18,7 +18,7 @@ export const LinksWithIconSlice = createSlice({
   name: 'linkWithIcon',
   initialState,
   reducers: {
-    addLink: (state, action) => {
+    addLink: (state) => {
       const id = state.links.length === 0 ? 0 : state.links[state.links.length - 1].id + 1;
       const newValue: LinkWithIcon = { id: id, title: '', iconSrc: null }
       state.links = [...state.links, newValue];
@@ -28,12 +28,12 @@ export const LinksWithIconSlice = createSlice({
       state.links[idx].title = newTitle
     },
     updateIconLinkSrc: (state, action) => {
-      console.log(action)
       const { idx, iconSrc } = action.payload
       state.links[idx].iconSrc = iconSrc
     },
     removeLink: (state, action) => {
-
+      const { idx } = action.payload;
+      state.links = state.links.filter((_, i) => i !== idx);
     }
   }
 })
